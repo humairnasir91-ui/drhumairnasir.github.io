@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Humair Nasir | Aesthetic Physician | GS Poly Clinic Dubai</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep: #0d1e38;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --text-muted: #8a9bb0;
+    --border: rgba(201,168,76,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(10,22,40,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; letter-spacing: 0.15em;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a1628 0%, #0d1e38 50%, #0a2040 100%);
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { max-width: 700px; position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--border);
+    padding: 8px 20px; margin-bottom: 32px;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white);
+    animation: fadeUp 0.8s ease 0.15s both;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 20px; margin-bottom: 40px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .hero-divider {
+    width: 60px; height: 1px; background: var(--gold);
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+  .hero-desc {
+    font-size: 0.9rem; line-height: 1.9; color: var(--text-muted);
+    max-width: 520px;
+    animation: fadeUp 0.8s ease 0.5s both;
+  }
+  .hero-cta {
+    margin-top: 48px; display: flex; gap: 20px;
+    animation: fadeUp 0.8s ease 0.6s both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 36px; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    border: none; cursor: pointer; text-decoration: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid var(--border); color: var(--text-muted);
+    padding: 14px 36px; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    text-decoration: none; font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 60px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .stat {
+    text-align: center; padding: 0 20px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300; color: var(--gold);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 6px;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 60px; }
+  .section-header { margin-bottom: 64px; }
+  .section-tag {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300;
+    color: var(--white); line-height: 1.1;
+  }
+  .section-line {
+    width: 48px; height: 1px; background: var(--gold);
+    margin-top: 24px;
+  }
+
+  /* ABOUT */
+  .about { background: var(--deep); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 0.88rem; line-height: 1.9; color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .credentials {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-top: 36px;
+  }
+  .credential {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    background: rgba(201,168,76,0.03);
+  }
+  .credential-icon {
+    width: 8px; height: 8px; background: var(--gold);
+    border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+  }
+  .credential-text { font-size: 0.78rem; line-height: 1.6; color: var(--text-muted); }
+  .credential-title { color: var(--white); font-weight: 500; margin-bottom: 3px; font-size: 0.82rem; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .service-card {
+    background: var(--deep);
+    padding: 40px 32px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+  .service-card:hover::before { height: 100%; }
+  .service-card:hover { border-color: var(--border); transform: translateY(-4px); }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: rgba(201,168,76,0.15);
+    display: block; margin-bottom: 16px;
+  }
+  .service-name {
+    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .service-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* REVIEWS */
+  .reviews { background: var(--deep); }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .review-card {
+    background: var(--navy);
+    padding: 32px; border: 1px solid var(--border);
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .review-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .review-stars {
+    color: var(--gold); font-size: 0.85rem;
+    letter-spacing: 3px; margin-bottom: 16px;
+  }
+  .review-text {
+    font-size: 0.82rem; line-height: 1.8;
+    color: var(--text-muted); font-style: italic;
+    margin-bottom: 20px;
+  }
+  .review-author {
+    display: flex; align-items: center; gap: 12px;
+    border-top: 1px solid var(--border); padding-top: 16px;
+  }
+  .author-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 600; color: var(--navy);
+    flex-shrink: 0;
+  }
+  .author-name { font-size: 0.78rem; font-weight: 600; color: var(--white); }
+  .author-time { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+  .google-badge {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 0.6rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    border: 1px solid var(--border); padding: 4px 8px;
+  }
+
+  /* EXPERIENCE */
+  .experience-timeline {
+    display: flex; flex-direction: column; gap: 0;
+    max-width: 800px;
+  }
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 48px; padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-period {
+    font-size: 0.72rem; letter-spacing: 0.15em;
+    color: var(--gold); text-transform: uppercase;
+    padding-top: 4px;
+  }
+  .exp-role { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .exp-clinic { font-size: 0.78rem; color: var(--gold); margin-bottom: 14px; letter-spacing: 0.05em; }
+  .exp-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
+
+  /* CONTACT */
+  .contact { background: var(--deep); text-align: center; }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact .section-line { margin: 24px auto 48px; }
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 48px;
+  }
+  .contact-item {
+    padding: 28px 20px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+  .contact-item:hover { border-color: var(--gold); }
+  .contact-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 10px;
+  }
+  .contact-value { font-size: 0.82rem; color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: #060e1c;
+    padding: 32px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--border);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: var(--gold); letter-spacing: 0.15em;
+  }
+  .footer-copy { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; }
+  .footer-dha {
+    font-size: 0.68rem; color: var(--gold); letter-spacing: 0.1em;
+    border: 1px solid var(--border); padding: 6px 14px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); padding: 32px 24px; gap: 24px; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+    section { padding: 60px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dr. Humair Nasir</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">GS Poly Clinic — Jumeirah, Dubai</div>
+    <h1>Dr. <em>Humair</em><br>Nasir</h1>
+    <p class="hero-sub">MBBS &nbsp;|&nbsp; Aesthetic Physician &nbsp;|&nbsp; DHA Licensed</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">Aesthetic Specialist & Medical Director at GS Poly Clinic Dubai. Over 7 years of expertise in non-surgical cosmetic procedures, trained under internationally recognised experts. Delivering safe, natural, and results-driven aesthetic treatments.</p>
+    <div class="hero-cta">
+      <a href="#reviews" class="btn-primary">Patient Reviews</a>
+      <a href="#contact" class="btn-outline">Book Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num">7+</span>
+    <span class="stat-label">Years of Experience</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">5★</span>
+    <span class="stat-label">Google Rating</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">DHA</span>
+    <span class="stat-label">Licensed — Active, UAE</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">10+</span>
+    <span class="stat-label">Aesthetic Procedures</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-header">
+        <span class="section-tag">About the Doctor</span>
+        <h2 class="section-title">Clinical Precision.<br>Natural Results.</h2>
+        <div class="section-line"></div>
+      </div>
+      <p>Dr. Humair Nasir is a DHA-licensed Aesthetic Physician and Medical Director at GS Poly Clinic, Jumeirah, Dubai. With over 7 years of hands-on expertise across Dubai and Pakistan, he specialises in advanced non-surgical cosmetic procedures with a philosophy centered on natural, results-driven outcomes.</p>
+      <p>Trained under internationally recognised cosmetic surgery expert Dr. Ifran Shaikh (MBBS, FCPS, FRCS, RCPSG), Dr. Humair brings both scientific precision and artistic sensibility to every treatment. He is known among patients for his thoroughness in consultation, patience during procedures, and exceptional care throughout the treatment journey.</p>
+      <p>As Medical Director, he leads clinical governance, quality assurance, and regulatory compliance at GS Poly Clinic — ensuring every patient receives the highest standard of care in a safe, professional environment.</p>
+    </div>
+    <div class="credentials">
+      <div class="credential">
+        <div class="credential-icon"></div>
+        <div class="credential-text">
+          <div class="credential-title">MBBS — Hamdard University, Karachi</div>
+          Certified in Invasive & Non-Invasive Aesthetic Procedures
+        </div>
+      </div>
+      <div class="credential">
+        <div class="credential-icon"></div>
+        <div class="credential-text">
+          <div class="credential-title">DHA Licensed — Dubai Health Authority</div>
+          Active Licence, United Arab Emirates
+        </div>
+      </div>
+      <div class="credential">
+        <div class="credential-icon"></div>
+        <div class="credential-text">
+          <div class="credential-title">PMDC Registered — Pakistan</div>
+          Pakistan Medical & Dental Council Full Registration
+        </div>
+      </div>
+      <div class="credential">
+        <div class="credential-icon"></div>
+        <div class="credential-text">
+          <div class="credential-title">Advanced Aesthetic Training</div>
+          Supervised under Dr. Ifran Shaikh (MBBS, FCPS, FRCS, RCPSG), internationally recognised cosmetic surgery expert
+        </div>
+      </div>
+      <div class="credential">
+        <div class="credential-icon"></div>
+        <div class="credential-text">
+          <div class="credential-title">Languages</div>
+          English (Fluent) — Urdu (Native)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-tag">Treatments & Procedures</span>
+    <h2 class="section-title">Comprehensive Aesthetic<br>Medicine</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <div class="service-name">Botulinum Toxin (Botox)</div>
+      <div class="service-desc">Facial aesthetics, hyperhidrosis management, and masseter reduction for a refined, natural appearance.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <div class="service-name">Dermal Fillers</div>
+      <div class="service-desc">Lip, jawline, chin, and cheek augmentation with full facial contouring for harmonious, balanced results.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <div class="service-name">Morpheus8 & RF Microneedling</div>
+      <div class="service-desc">Advanced skin tightening, collagen induction, and facial remodelling using radiofrequency technology.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <div class="service-name">PRP Therapy</div>
+      <div class="service-desc">Platelet Rich Plasma for facial rejuvenation, hair restoration, and scalp treatments.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <div class="service-name">Laser Treatments</div>
+      <div class="service-desc">Hair reduction, skin rejuvenation, pigmentation correction, sun damage, redness, and texture refinement.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <div class="service-name">Mesotherapy & Salmon DNA</div>
+      <div class="service-desc">Deep hydration, anti-ageing, and skin quality improvement with targeted injection therapies.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">07</span>
+      <div class="service-name">Body Contouring</div>
+      <div class="service-desc">Non-surgical fat reduction, body shaping, and skin tightening for sculpted, natural results.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">08</span>
+      <div class="service-name">Hair & Eyebrow Transplant</div>
+      <div class="service-desc">Precision hair and eyebrow restoration procedures delivering natural, long-lasting results.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-num">09</span>
+      <div class="service-name">Acne, Scar & Pigmentation</div>
+      <div class="service-desc">Comprehensive skin management protocols targeting acne scars, pigmentation, and skin texture concerns.</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-header">
+    <span class="section-tag">Patient Testimonials</span>
+    <h2 class="section-title">What Patients Say</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Warm welcoming by all the staff and highly skilled doctors. Dr Humair gave me the best advice based on my skin and type. I got the best opinion for my acne scars and was introduced to the Morpheus 8 Pro machine."</p>
+      <div class="review-author">
+        <div class="author-avatar">F</div>
+        <div>
+          <div class="author-name">Fathima Sumiyacv</div>
+          <div class="author-time">3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Very good experience here with Dr Humair. The staff is very good and hospitality is excellent. Definitely recommended this clinic."</p>
+      <div class="review-author">
+        <div class="author-avatar">N</div>
+        <div>
+          <div class="author-name">Niluka HV</div>
+          <div class="author-time">3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I did Morpheus fat burn injection, salmon DNA and the best part — the lip filler. I am so happy with the result. Dr Humair performed the procedure and Bianca made sure I was comfortable throughout. Will definitely do more treatments."</p>
+      <div class="review-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Samia Mahmoud</div>
+          <div class="author-time">2 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Dr Humair was fantastic — very professional, knowledgeable and personable. Highly recommend!"</p>
+      <div class="review-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Sachhyam Regmi</div>
+          <div class="author-time">3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I had a skin treatment and a very good experience. Dr Humair was professional and explained everything clearly. Nurse Fathima was helpful during the entire treatment. Great customer service by Enas and Bianca."</p>
+      <div class="review-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Sini Sasikumar</div>
+          <div class="author-time">3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Dr Humair — great doctor with excellent consultation and truly attentive patient care. Special thanks to Nurse Fatima for her kindness and support."</p>
+      <div class="review-author">
+        <div class="author-avatar">N</div>
+        <div>
+          <div class="author-name">Negin S</div>
+          <div class="author-time">3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Dr Humair did my full face filler. I loved it — there was barely any pain and he was very patient with me. 100% coming back!!!"</p>
+      <div class="review-author">
+        <div class="author-avatar">K</div>
+        <div>
+          <div class="author-name">Katy</div>
+          <div class="author-time">4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"It was my first time. I came for Morpheus 8 and fat burning treatment. Dr Humair was knowledgeable and advisable. He took time to discuss and explain. With my low pain tolerance, he was really patient with me throughout."</p>
+      <div class="review-author">
+        <div class="author-avatar">M</div>
+        <div>
+          <div class="author-name">Milica Vukelic</div>
+          <div class="author-time">4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Amazing day with GS Poly Clinic. Very professional and kind, especially Dr Humer. Great offers — don't miss it!"</p>
+      <div class="review-author">
+        <div class="author-avatar">H</div>
+        <div>
+          <div class="author-name">Hedie Shahriyari</div>
+          <div class="author-time">5 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I did my botox with Dr Humair — I am so happy, very good management."</p>
+      <div class="review-author">
+        <div class="author-avatar">A</div>
+        <div>
+          <div class="author-name">Aicha Bahamad</div>
+          <div class="author-time">4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Clean place, well organised, and quick service. Young and well versed with his work — Dr Humair. Bianca was friendly too."</p>
+      <div class="review-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Shaheen Anwar</div>
+          <div class="author-time">2 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Nice and luxury clinic in Jumeirah — best Dr Humair. Definitely recommend."</p>
+      <div class="review-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Sana Ganouni</div>
+          <div class="author-time">4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I am very happy with my experience at this clinic and the results are wonderful with Dr Homer."</p>
+      <div class="review-author">
+        <div class="author-avatar">B</div>
+        <div>
+          <div class="author-name">Bint Dubai</div>
+          <div class="author-time">5 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Excellent experience with Dr Humair — the services are excellent. I would highly recommend."</p>
+      <div class="review-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Saima Irfan</div>
+          <div class="author-time">4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My experience with Dr Humair was very pleasant. I am really satisfied from the results he provided me with."</p>
+      <div class="review-author">
+        <div class="author-avatar">K</div>
+        <div>
+          <div class="author-name">Katy Lulu</div>
+          <div class="author-time">4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Very good Dr Humair — excellent. Definitely recommend this clinic."</p>
+      <div class="review-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Saeeda Bibi</div>
+          <div class="author-time">3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="google-badge">Google ★ Verified</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The clinic is nice. Dr Humair is very good. Highly recommend."</p>
+      <div class="review-author">
+        <div class="author-avatar">K</div>
+        <div>
+          <div class="author-name">Khantsithu Aung</div>
+          <div class="author-time">3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-tag">Professional Experience</span>
+    <h2 class="section-title">Career Timeline</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="experience-timeline">
+    <div class="exp-item">
+      <div class="exp-period">Oct 2025 — Present</div>
+      <div>
+        <div class="exp-role">Aesthetic Specialist & Medical Director</div>
+        <div class="exp-clinic">GS Poly Clinic — Dubai, UAE</div>
+        <div class="exp-desc">Leading clinical direction, quality assurance, and regulatory compliance at a multi-specialty aesthetic clinic. Conducting patient consultations, delivering the full range of aesthetic procedures, supervising junior medical staff, and overseeing all DHA regulatory inspections and clinical audits.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">Feb 2025 — Oct 2025</div>
+      <div>
+        <div class="exp-role">Senior Aesthetic Physician</div>
+        <div class="exp-clinic">Infrafit Slimming Centre — Dubai, UAE</div>
+        <div class="exp-desc">Delivered advanced aesthetic treatments at a premium slimming and aesthetic centre in Dubai. Performed Botox, dermal fillers, PRP, laser treatments, Morpheus8, microneedling, and hair and eyebrow transplant procedures.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">Jul 2019 — Jan 2025</div>
+      <div>
+        <div class="exp-role">Senior Aesthetic Physician</div>
+        <div class="exp-clinic">Al Khaleej Cosmetics Clinic — Pakistan</div>
+        <div class="exp-desc">Provided comprehensive aesthetic medical services over 5.5 years at a high-volume cosmetic clinic. Developed personalised treatment plans across the full spectrum of aesthetic procedures and mentored junior clinical staff.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-header">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">Book a Consultation</h2>
+      <div class="section-line"></div>
+    </div>
+    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.8;">Ready to begin your aesthetic journey? Contact GS Poly Clinic or Dr. Humair directly to schedule your personalised consultation.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+971 52 971 2230</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value" style="font-size:0.72rem;">humair.nasir91@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Jumeirah, Dubai, UAE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">GS Poly Clinic</div>
+  <div class="footer-copy">© 2026 Dr. Humair Nasir. All rights reserved.</div>
+  <div class="footer-dha">DHA Licensed — Active</div>
+</footer>
+
+</body>
+</html>
